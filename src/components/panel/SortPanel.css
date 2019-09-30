@@ -1,0 +1,62 @@
+.cell {
+    height: inherit;
+  }
+  
+  .row {
+    /* width: 500px; */
+    display: flex;
+  }
+  
+  .visualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .buttonsContainer {
+    margin: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bttn-sort {
+    background-color: rgb(76, 206, 126);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 15px;
+
+  }
+
+  .bttn-sort:active {
+    background-color: #008CBA;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bttn-reset {
+    background-color: rgb(197, 101, 101);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 15px;
+
+  }
+
+  .bttn-reset:active {
+    background-color:  rgb(197, 101, 101);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
