@@ -1,3 +1,4 @@
+import {shuffle} from 'underscore';
 let temp;
 
 export function swap(row, indexA, indexB) {
@@ -13,7 +14,7 @@ export function getColor(hslString) {
 };
 
 export function rand(min, max) {
-  return parseInt(Math.random() * (max-min), 10);
+  return Math.floor(Math.random() * (max-min));
 };
 
 export function randomColor() {
@@ -26,6 +27,18 @@ export function randomColor() {
 
 export function randomId() {
   return Math.random() * 1000;
+}
+
+export function completeRandomColor(){
+  let y= [];
+  let h = 0;
+  let s = 100;
+  let l = 50;
+  for(var i=0; i<40; i++){
+    y.push(`hsl(${h},${s}%,${l}%)`);
+    h+=9;
+  }
+  return Array.from(shuffle(y));
 }
 
 export default {

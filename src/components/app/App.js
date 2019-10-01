@@ -19,14 +19,14 @@ class App extends Component {
     return(
       <div className = 'App'>
         <header className ='App-header'>
-          <h1 clasName = 'App-title'> Algoritmos de Ordenação O(n log n)</h1>
+          <h1 className = 'App-title'> Sort Algorithms O(n log n)</h1>
         </header>
         <div className = 'options-container'>
-          <button className='bttn-algorithm' value='bubble' onClick ={this.changeMethod}> Bubble </button>
-          <button className='bttn-algorithm'onClick ={this.changeMethod}> Merge </button>
+          <button className='bttn-algorithm' value = 'bubble' onClick ={this.changeMethod}> Bubble </button>
+          <button className='bttn-algorithm' onClick ={this.changeMethod}> Merge </button>
           <button className='bttn-algorithm' onClick ={this.changeMethod}> Quick </button>
           <button className='bttn-algorithm' onClick ={this.changeMethod}> Shell </button>
-          <button className='bttn-algorithm' onClick ={this.changeMethod}> Radix </button>
+          <button className='bttn-algorithm' value = 'radix' onClick ={this.changeMethod}> Radix </button>
         </div>
         <SortPanel
           method={algorithms[this.state.sortingMethod]}

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {randomColor,
-        randomId}
+        randomId,
+        completeRandomColor}
         from '../../algorithms/utils';
 import './SortPanel.css'
 
@@ -31,24 +32,25 @@ class SortPanel extends Component {
     }
 
     updateRows(id, newRows){
-        if (id == this.state.id){
+        if (id === this.state.id){
             this.setState({ rows: newRows });
         }
     }
 
-    createRow() {
-        const rowState = [];
-        for (let i = 0; i < 50; i++) {
-          rowState.push(randomColor());
-        }
-        return rowState;
-      }
+    // createRow() {
+    //     const rowState = [];
+    //     for (let i = 0; i < 40; i++) {
+    //       rowState.push(randomColor());
+    //     }
+    //     return rowState;
+    //   }
 
     createRows() {
         const rows = [];
-        for (let i = 0; i < 50; i++) {
-            rows.push(this.createRow());
+        for (let i = 0; i < 40; i++) {
+            rows.push(completeRandomColor());
         }
+        console.log(rows);
         return rows;
     }
 
@@ -80,7 +82,6 @@ class SortPanel extends Component {
     
 SortPanel.propTypes = {
   method: PropTypes.func.isRequired,
-  sortBy: PropTypes.string.isRequired,
 };
 
 export default SortPanel;
