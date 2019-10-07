@@ -24,8 +24,8 @@ class App extends Component {
         <div className = 'options-container'>
           <button className='bttn-algorithm' value = 'bubble' onClick ={this.changeMethod}> Bubble </button>
           <button className='bttn-algorithm' onClick ={this.changeMethod}> Merge </button>
-          <button className='bttn-algorithm' onClick ={this.changeMethod}> Quick </button>
-          <button className='bttn-algorithm' onClick ={this.changeMethod}> Shell </button>
+          <button className='bttn-algorithm' value = 'quick' onClick ={this.changeMethod}> Quick </button>
+          <button className='bttn-algorithm' value = 'bucket' onClick ={this.changeMethod}> Bucket </button>
           <button className='bttn-algorithm' value = 'radix' onClick ={this.changeMethod}> Radix </button>
         </div>
         <SortPanel

@@ -1,13 +1,13 @@
 import utils from './utils';
 
-let callback, rows, endIndex, getColor;
+let callback, rows, endIndex;
 let stillSwapping = true;
 let swappingAt = 0;
 let madeSwap = false;
 
 function swapAtIndexIfNeeded(row) {
-  const first = getColor(row[swappingAt]);
-  const second = getColor(row[swappingAt + 1]);
+  const first = row[swappingAt];
+  const second = row[swappingAt + 1];
   if (second > first) {
     utils.swap(row, swappingAt, swappingAt + 1);
     return true;
@@ -43,7 +43,6 @@ function sortStep() {
 }
 
 function bubble(inputRows, updateCB) {
-  getColor = utils.getColor.bind(null);
   rows = inputRows;
   callback = updateCB;
   endIndex = rows.length - 2;

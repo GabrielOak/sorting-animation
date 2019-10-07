@@ -7,12 +7,6 @@ export function swap(row, indexA, indexB) {
   row[indexA] = temp;
 };
 
-export function getColor(hslString) {
-
-  return +hslString.split(',')[0].substring(4);
-
-};
-
 export function rand(min, max) {
   return Math.floor(Math.random() * (max-min));
 };
@@ -32,10 +26,8 @@ export function randomId() {
 export function completeRandomColor(){
   let y= [];
   let h = 0;
-  let s = 100;
-  let l = 50;
   for(var i=0; i<40; i++){
-    y.push(`hsl(${h},${s}%,${l}%)`);
+    y.push(h);
     h+=9;
   }
   return Array.from(shuffle(y));
@@ -43,7 +35,6 @@ export function completeRandomColor(){
 
 export default {
   swap,
-  getColor,
   randomColor,
   randomId,
 };

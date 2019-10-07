@@ -71,7 +71,7 @@ class SortPanel extends Component {
         {this.state.rows.map((row, rowIndex) => {
           return (<div className="row" style={{height: cellDimension}} key={rowIndex}>
             {row.map((cell, cellIndex) => (
-              <span className="cell" key={cellIndex} style={{backgroundColor: cell, width: cellDimension}} />
+              <span className="cell" key={cellIndex} style={{backgroundColor: "hsl("+cell+", 100%, 50%)", width: cellDimension}} />
             ))}
           </div>);
         })}
