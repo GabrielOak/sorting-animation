@@ -19,7 +19,7 @@ class App extends Component {
     return(
       <div className = 'App'>
         <header className ='App-header'>
-          <h1 className = 'App-title'> Sort Algorithms O(n log n)</h1>
+          <h1 className = 'App-title'> Sort Algorithms</h1>
         </header>
         <div className = 'options-container'>
           <button className='bttn-algorithm' value = 'bubble' onClick ={this.changeMethod}> Bubble </button>

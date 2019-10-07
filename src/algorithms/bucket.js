@@ -1,8 +1,15 @@
+import utils from './utils';
+
+
 let callback, rows;
 let result = [];
 let aux = [];
 let r = [];
 let size = 90;
+let stillSwapping = true;
+let swappingAt = 0;
+let madeSwap = false;
+let endIndex;
 
 function bucket(inputRows, update) {
 	rows = inputRows;
@@ -15,14 +22,19 @@ function bucket(inputRows, update) {
 }
 
 function sortStep() {
-	aux = [];
-	r.forEach(sort);
+
+  endIndex = rows.length - 2;
+  stillSwapping = true;
+  swappingAt = 0;
+  madeSwap = false;
+
+	bubble();
 }
 
-function sort(row) {
-	row = mergeSort(row);
-	aux.push(row);
-}
+// function sort(row) {
+// 	row = mergeSort(row);
+// 	aux.push(row);
+// }
 
 function ganerateBuckets(row) {
 	result = [];
@@ -43,42 +55,48 @@ function ganerateBuckets(row) {
 
 	}
 
-	result = result.concat(aux[0], aux[1], aux[2], aux[3]);
+	result = result.concat(aux[3], aux[2], aux[1], aux[0]);
 	r.push(result);
 
 	return r;
 }
 
-function mergeSort(unsortedArray) {
-	if (unsortedArray.length <= 1) {
-		return unsortedArray;
-	}
-	const middle = Math.floor(unsortedArray.length / 2);
+function bubble(){
 
-	const left = unsortedArray.slice(0, middle);
-	const right = unsortedArray.slice(middle);
+  r.forEach(iterateOnRow);
+  callback(r);
 
-	return merge(
-		mergeSort(left), mergeSort(right)
-	);
+  cleanup();
+
+  if (stillSwapping) { setTimeout(bubble, 0); }
 }
 
-function merge(left, right) {
-	let resultArray = [], leftIndex = 0, rightIndex = 0;
+function cleanup() {
+  if (swappingAt === endIndex) {
+    swappingAt = 0;
+    endIndex = endIndex === 0 ? 0 : endIndex - 1;
+    if (!madeSwap) {
+      stillSwapping = false;
+    } else {
+      madeSwap = false;
+    }
+  } else {
+    swappingAt++;
+  }
+}
 
-	while (leftIndex < left.length && rightIndex < right.length) {
-		if (left[leftIndex] < right[rightIndex]) {
-			resultArray.push(left[leftIndex]);
-			leftIndex++;
-		} else {
-			resultArray.push(right[rightIndex]);
-			rightIndex++;
-		}
-	}
+function iterateOnRow(row) {
+  const didSwap = swapAtIndexIfNeeded(row);
+  if (!madeSwap && didSwap) { madeSwap = true; }
+}
 
-	return resultArray
-		.concat(left.slice(leftIndex))
-		.concat(right.slice(rightIndex));
+function swapAtIndexIfNeeded(row) {
+  const first = row[swappingAt];
+  const second = row[swappingAt + 1];
+  if (second > first) {
+    utils.swap(row, swappingAt, swappingAt + 1);
+    return true;
+  }
 }
 
 export default bucket;
