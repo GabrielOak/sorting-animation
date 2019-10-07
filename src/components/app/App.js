@@ -26,7 +26,7 @@ class App extends Component {
           <button className='bttn-algorithm' onClick ={this.changeMethod}> Merge </button>
           <button className='bttn-algorithm' value = 'quick' onClick ={this.changeMethod}> Quick </button>
           <button className='bttn-algorithm' value = 'bucket' onClick ={this.changeMethod}> Bucket </button>
-          <button className='bttn-algorithm' value = 'radix' onClick ={this.changeMethod}> Radix </button>
+          <button className='bttn-algorithm' value = 'shell' onClick ={this.changeMethod}> Shell </button>
         </div>
         <SortPanel
           method={algorithms[this.state.sortingMethod]}
